@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slideshow / Carousel Example</title>
+<style>
+    /* Basic CSS for the slideshow */
+    .slideshow {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        max-width: 600px; /* Adjust the max-width as needed */
+        margin: 0 auto; /* Center the slideshow */
+    }
+    .slideshow img {
+        width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <div class="slideshow">
+        <!-- Placeholder images for demonstration -->
+        <div class="slide">
+            <img src="#" alt="Slide 1" data-src="https://via.placeholder.com/600x400?text=Slide+1">
+        </div>
+        <div class="slide">
+            <img src="#" alt="Slide 2" data-src="https://via.placeholder.com/600x400?text=Slide+2">
+        </div>
+        <div class="slide">
+            <img src="#" alt="Slide 3" data-src="https://via.placeholder.com/600x400?text=Slide+3">
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript for slideshow functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const slideshow = document.querySelector('.slideshow');
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+        const slideInterval = 3000; // Interval in milliseconds (3 seconds)
+
+        function nextSlide() {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }
+
+        function startSlideshow() {
+            slides[currentIndex].classList.add('active');
+            setInterval(nextSlide, slideInterval);
+        }
+
+        // Preload images before starting slideshow
+        slides.forEach(slide => {
+            const img = new Image();
+            img.src = slide.querySelector('img').getAttribute('data-src');
+        });
+
+        startSlideshow();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autocomplete Example</title>
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include jQuery UI for autocomplete -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Autocomplete Example</h2>
+    <p>Type a country name:</p>
+    <input type="text" id="autocomplete-input">
+</div>
+
+<script>
+$(document).ready(function() {
+    // Initialize autocomplete
+    $("#autocomplete-input").autocomplete({
+        source: function(request, response) {
+            // AJAX request to fetch autocomplete suggestions
+            $.ajax({
+                url: "ajax.php", // Replace with your backend endpoint
+                method: "POST",
+                dataType: "json",
+                data: {
+                    term: request.term
+                },
+                success: function(data) {
+                    response(data); // Display suggestions
+                },
+                error: function(err) {
+                    console.error("Error fetching autocomplete data:", err);
+                }
+            });
+        },
+        minLength: 1 // Minimum characters before triggering autocomplete
+    });
+});
+</script>
+
+</body>
+</html>
