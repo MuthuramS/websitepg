@@ -95,6 +95,26 @@ function formatCurrency($number)
             width: 100%;
         }
     }
+
+    .nav.d-flex {
+        /* width: 100%; */
+        /* border: black 1px solid; */
+        position: fixed;
+        margin-top: 0px;
+        z-index: 10000;
+        background-color: white;
+        box-sizing: border-box;
+        transition: all 0.3s ease-in;
+    }
+    .non{
+        display: none;
+    }
+
+    .nav.d-flex>li {
+        padding: 0 25px;
+        font-weight: bold;
+        color: black;
+    }
 </style>
 
 <body>
@@ -116,6 +136,19 @@ function formatCurrency($number)
         </header>
         <!-- HEADER AREA END -->
 
+        <div class="col-12" id="secLink">
+            <ul class="nav d-flex col-12">
+                <li><a href="#">Home</a></li>
+                <li><a href="#project">Project</a></li>
+                <li><a href="#Aboutproject">About Project</a></li>
+                <li><a href="#projectDetail">Property Detail</a></li>
+                <li><a href="#Config">Configurations</a></li>
+                <li><a href="#gallery">Our Gallery</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#property">Property Video</a></li>
+                <li><a href="#relpro">Related Property</a></li>
+            </ul>
+        </div>
         <!-- Utilize Cart Menu Start -->
         <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
             <div class="ltn__utilize-menu-inner ltn__scrollbar">
@@ -341,7 +374,7 @@ function formatCurrency($number)
         <div class="ltn__page-details-area ltn__service-details-area mb-10">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8" id="project">
                         <div class="ltn__page-details-inner ltn__service-details-inner">
                             <div class="ltn__blog-img">
                                 <img src="https://propguider.com/crm/upload_images/<?= $results[0]['main_image']; ?>" alt="Image">
@@ -402,7 +435,7 @@ function formatCurrency($number)
                                 </li>
                             </ul>
                         </div> -->
-                            <h1><?= $results[0]['property_name']; ?></h1>
+                            <h1 id="Aboutproject"><?= $results[0]['property_name']; ?></h1>
                             <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> <?= $results[0]['location']; ?> , Chennai</label>
                             <h4 class="title-2">About Project</h4>
                             <p>
@@ -410,7 +443,7 @@ function formatCurrency($number)
                             </p>
                             <!-- <p>To the left is the modern kitchen with central island, leading through to the unique breakfast family room which feature glass walls and doors out onto the garden and access to the separate utility room.</p> -->
 
-                            <h4 class="title-2">Property Detail</h4>
+                            <h4 class="title-2" id="projectDetail">Property Detail</h4>
                             <div class="property-detail-info-list section-bg-1 clearfix mb-20">
                                 <ul style="padding: 10px 10px;">
                                     <li><label>Project Name :</label> <span><?= $results[0]['property_name']; ?></span></li>
@@ -547,7 +580,7 @@ function formatCurrency($number)
                                 </li>
                             </ul>
                         </div> -->
-                            <h4 class="title-2">Configurations</h4>
+                            <h4 class="title-2"  id="Config">Configurations</h4>
                             <div class="ltn__property-details-gallery mb-10">
                                 <div class="table-responsive">
                                     <table class="table table-striped">
@@ -565,159 +598,159 @@ function formatCurrency($number)
                                         </thead>
                                         <tbody>
                                             <?php
-                                            if(($results[0]['1bhk_size_min']&&$results[0]['1bhk_size_max'])!=''&&($results[0]['1bhk_size_min']&&$results[0]['1bhk_size_max'])!=null){
+                                            if (($results[0]['1bhk_size_min'] && $results[0]['1bhk_size_max']) != '' && ($results[0]['1bhk_size_min'] && $results[0]['1bhk_size_max']) != null) {
                                             ?>
-                                            <tr>
-                                                <th scope="row">
-                                                    1BHK
-                                                </th>
-                                                <td>
-                                                <?= $results[0]['1bhk_size_min']." sqt"; ?> - <?= $results[0]['1bhk_size_max']." sqt"; ?> 
-                                                </td>
-                                                <td>
-                                                <?= "↓ ".$results[0]['1bhk_budget_min']; ?> - <?= " ↑ ".$results[0]['1bhk_budget_min']; ?>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button>     
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        1BHK
+                                                    </th>
+                                                    <td>
+                                                        <?= $results[0]['1bhk_size_min'] . " sqt"; ?> - <?= $results[0]['1bhk_size_max'] . " sqt"; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= "↓ " . $results[0]['1bhk_budget_min']; ?> - <?= " ↑ " . $results[0]['1bhk_budget_min']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
                                             <?php
-                                            if(($results[0]['1_5bhk_size_min']&&$results[0]['1_5bhk_size_max'])!=''&&($results[0]['1_5bhk_size_min']&&$results[0]['1_5bhk_size_max'])!=null){
+                                            if (($results[0]['1_5bhk_size_min'] && $results[0]['1_5bhk_size_max']) != '' && ($results[0]['1_5bhk_size_min'] && $results[0]['1_5bhk_size_max']) != null) {
                                             ?>
-                                            <tr>
-                                                <th scope="row">
-                                                    1.5BHK
-                                                </th>
-                                                <td>
-                                                <?= $results[0]['1_5bhk_size_min']." sqt"; ?> - <?= $results[0]['1_5bhk_size_max']." sqt"; ?> 
-                                                </td>
-                                                <td>
-                                                <?= "↓ ".$results[0]['1_5bhk_budget_min']; ?> - <?= " ↑ ".$results[0]['1_5bhk_budget_max']; ?>
-                                                </td>
-                                                <td>
-                                                   <button class="btn btn-primary btn-sm"></button> 
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        1.5BHK
+                                                    </th>
+                                                    <td>
+                                                        <?= $results[0]['1_5bhk_size_min'] . " sqt"; ?> - <?= $results[0]['1_5bhk_size_max'] . " sqt"; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= "↓ " . $results[0]['1_5bhk_budget_min']; ?> - <?= " ↑ " . $results[0]['1_5bhk_budget_max']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-primary btn-sm"></button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
                                             <?php
-                                            if(($results[0]['2bhk_size_min']&&$results[0]['2bhk_size_max'])!=''&&($results[0]['2bhk_size_min']&&$results[0]['2bhk_size_max'])!=null){
+                                            if (($results[0]['2bhk_size_min'] && $results[0]['2bhk_size_max']) != '' && ($results[0]['2bhk_size_min'] && $results[0]['2bhk_size_max']) != null) {
                                             ?>
-                                            <tr>
-                                                <th scope="row">
-                                                    2BHK
-                                                </th>
-                                                <td>
-                                                <?= $results[0]['2bhk_size_min']." sqt"; ?> - <?= $results[0]['2bhk_size_max']." sqt"; ?> 
-                                                </td>
-                                                <td>
-                                                <?= "↓ ".$results[0]['2bhk_budget_min']; ?> - <?= " ↑ ".$results[0]['2bhk_budget_max']; ?>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        2BHK
+                                                    </th>
+                                                    <td>
+                                                        <?= $results[0]['2bhk_size_min'] . " sqt"; ?> - <?= $results[0]['2bhk_size_max'] . " sqt"; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= "↓ " . $results[0]['2bhk_budget_min']; ?> - <?= " ↑ " . $results[0]['2bhk_budget_max']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
                                             <?php
-                                            if(($results[0]['2_5bhk_size_min']&&$results[0]['2_5bhk_size_max'])!=''&&($results[0]['2_5bhk_size_min']&&$results[0]['2_5bhk_size_max'])!=null){
+                                            if (($results[0]['2_5bhk_size_min'] && $results[0]['2_5bhk_size_max']) != '' && ($results[0]['2_5bhk_size_min'] && $results[0]['2_5bhk_size_max']) != null) {
                                             ?>
-                                            <tr>
-                                                <th scope="row">
-                                                    2.5BHK
-                                                </th>
-                                                <td>
-                                                    <?= $results[0]['2_5bhk_size_min']." sqt"; ?> - <?= $results[0]['2_5bhk_size_max']." sqt"; ?>                                                 </td>
-                                                <td>
-                                                <?= "↓ ".$results[0]['2_5bhk_budget_min']; ?> - <?= " ↑ ".$results[0]['2_5bhk_budget_max']; ?>                                                    
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        2.5BHK
+                                                    </th>
+                                                    <td>
+                                                        <?= $results[0]['2_5bhk_size_min'] . " sqt"; ?> - <?= $results[0]['2_5bhk_size_max'] . " sqt"; ?> </td>
+                                                    <td>
+                                                        <?= "↓ " . $results[0]['2_5bhk_budget_min']; ?> - <?= " ↑ " . $results[0]['2_5bhk_budget_max']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
                                             <?php
-                                            if(($results[0]['3bhk_size_min']&&$results[0]['3bhk_size_max'])!=''&&($results[0]['3bhk_size_min']&&$results[0]['3bhk_size_max'])!=null){
+                                            if (($results[0]['3bhk_size_min'] && $results[0]['3bhk_size_max']) != '' && ($results[0]['3bhk_size_min'] && $results[0]['3bhk_size_max']) != null) {
                                             ?>
-                                            <tr>
-                                                <th scope="row">
-                                                    3BHK
-                                                </th>
-                                                <td>
-                                                    <?= $results[0]['3bhk_size_min']." sqt"; ?> - <?= $results[0]['3bhk_size_max']." sqt"; ?>                                                 </td>
-                                                <td>
-                                                <?= "↓ ".$results[0]['3bhk_budget_min']; ?> - <?= " ↑ ".$results[0]['3bhk_budget_max']; ?>                                                    
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        3BHK
+                                                    </th>
+                                                    <td>
+                                                        <?= $results[0]['3bhk_size_min'] . " sqt"; ?> - <?= $results[0]['3bhk_size_max'] . " sqt"; ?> </td>
+                                                    <td>
+                                                        <?= "↓ " . $results[0]['3bhk_budget_min']; ?> - <?= " ↑ " . $results[0]['3bhk_budget_max']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
                                             <?php
-                                            if(($results[0]['4bhk_size_min']&&$results[0]['4bhk_size_max'])!=''&&($results[0]['4bhk_size_min']&&$results[0]['4bhk_size_max'])!=null){
+                                            if (($results[0]['4bhk_size_min'] && $results[0]['4bhk_size_max']) != '' && ($results[0]['4bhk_size_min'] && $results[0]['4bhk_size_max']) != null) {
                                             ?>
-                                            <tr>
-                                                <th scope="row">
-                                                    4BHK
-                                                </th>
-                                                <td>
-                                                    <?= $results[0]['4bhk_size_min']." sqt"; ?> - <?= $results[0]['4bhk_size_max']." sqt"; ?></td>
-                                                <td>
-                                                <?= "↓ ".$results[0]['4bhk_budget_min']; ?> - <?= " ↑ ".$results[0]['4bhk_budget_max']; ?>                                                    
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        4BHK
+                                                    </th>
+                                                    <td>
+                                                        <?= $results[0]['4bhk_size_min'] . " sqt"; ?> - <?= $results[0]['4bhk_size_max'] . " sqt"; ?></td>
+                                                    <td>
+                                                        <?= "↓ " . $results[0]['4bhk_budget_min']; ?> - <?= " ↑ " . $results[0]['4bhk_budget_max']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
                                             <?php
-                                            if(($results[0]['5bhk_size_min']&&$results[0]['5bhk_size_max'])!=''&&($results[0]['5bhk_size_min']&&$results[0]['5bhk_size_max'])!=null){
+                                            if (($results[0]['5bhk_size_min'] && $results[0]['5bhk_size_max']) != '' && ($results[0]['5bhk_size_min'] && $results[0]['5bhk_size_max']) != null) {
                                             ?>
-                                            <tr>
-                                                <th scope="row">
-                                                    5BHK
-                                                </th>
-                                                <td>
-                                                    <?= $results[0]['5bhk_size_min']." sqt"; ?> - <?= $results[0]['5bhk_size_max']." sqt"; ?></td>
-                                                <td>
-                                                <?= "↓ ".$results[0]['5bhk_budget_min']; ?> - <?= " ↑ ".$results[0]['5bhk_budget_max']; ?>                                                    
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-sm p-1">View</button> 
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        5BHK
+                                                    </th>
+                                                    <td>
+                                                        <?= $results[0]['5bhk_size_min'] . " sqt"; ?> - <?= $results[0]['5bhk_size_max'] . " sqt"; ?></td>
+                                                    <td>
+                                                        <?= "↓ " . $results[0]['5bhk_budget_min']; ?> - <?= " ↑ " . $results[0]['5bhk_budget_max']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-sm p-1">View</button>
+                                                    </td>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
@@ -725,7 +758,7 @@ function formatCurrency($number)
                                     </table>
                                 </div>
                             </div>
-                            <h4 class="title-2">From Our Gallery</h4>
+                            <h4 class="title-2" id="gallery">From Our Gallery</h4>
                             <div class="ltn__property-details-gallery mb-10">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -860,7 +893,7 @@ function formatCurrency($number)
                             </div>
                         </div> -->
 
-                            <h4 class="title-2">Location</h4>
+                            <h4 class="title-2" id="location">Location</h4>
                             <div class="property-details-google-map mb-60">
                                 <?= $results[0]['address']; ?>
                             </div>
@@ -1049,7 +1082,7 @@ function formatCurrency($number)
                             <!-- </div> -->
                             <!-- APARTMENTS PLAN AREA END -->
 
-                            <h4 class="title-2">Property Video</h4>
+                            <h4 class="title-2" id="property">Property Video</h4>
                             <div class="ltn__video-bg-img ltn__video-popup-height-500 bg-overlay-black-50 bg-image mb-10">
                                 <a class="ltn__video-icon-2 ltn__video-icon-2-border---" href="<?= $results[0]['youtube_url'] ?>" target="_blank">
                                     <i class="fa fa-play"></i>
@@ -1178,7 +1211,7 @@ function formatCurrency($number)
                             <!-- </div> -->
 
                             <!-- PRODUCT SLIDER AREA START -->
-                            <div class="ltn__product-slider-area ltn__product-gutter pt-5 pb-10">
+                            <div class="ltn__product-slider-area ltn__product-gutter pt-5 pb-10" id="relpro">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-lg-12">
@@ -2361,6 +2394,19 @@ function formatCurrency($number)
                 widget.classList.add('sticky');
             } else {
                 widget.classList.remove('sticky');
+            }
+        });
+        
+        window.addEventListener('scroll', function() {
+            var widget = document.getElementById('secLink');
+            var scrollPosition = window.scrollY;
+
+            if (scrollPosition > 1000 && scrollPosition < 4200) { // Adjust this value based on when you want the widget to become fixed
+                widget.classList.remove('non');
+                $('.ltn__header-area').css('display','none');
+            } else {
+                widget.classList.add('non');
+                $('.ltn__header-area').css('display','block');
             }
         });
     </script>
